@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About RafatharCode</title>
+  <link rel="icon" href="https://files.catbox.moe/1mrgbt.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .container, .main-content {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .typing-text {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      min-height: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.03);
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0f2027;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      animation: fadeOut 2s 2s forwards;
+    }
+
+    .loading-screen h1 {
+      font-size: 2rem;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .next-button {
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .lyrics {
+      font-size: 0.85rem;
+      color: #ccc;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .product {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .product h3 {
+      margin: 0.5rem 0;
+    }
+
+    .product p {
+      margin-bottom: 1rem;
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+
+    .product .next-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-screen" id="loading">
+    <h1>Welcome, RafatharCode</h1>
+  </div>
+
+  <div class="container" id="intro">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" alt="Profile" class="profile-img">
+    <h1>RafatharCode</h1>
+    <div class="typing-text" id="introTyping"></div>
+    <div class="button-group">
+      <button class="next-button" onclick="goToMain()">Hi Buyer RafatharCode</button>
+    </div>
+  </div>
+
+  <div class="main-content" id="main">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" alt="Profile" class="profile-img">
+    <h1>RafatharCode Developer</h1>
+    <div class="typing-text" id="mainTyping"></div>
+    <div class="links">
+      <a href="https://wa.me/6285864743922" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" class="icon" /> WhatsApp
+      </a>
+      <a href="https://www.youtube.com/@RafatharCode444" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="icon" /> YouTube
+      </a>
+      <a href="https://github.com/RafatharUserbotV4" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" class="icon" /> GitHub
+      </a>
+    </div>
+    <div class="button-group">
+      <button class="next-button" onclick="showSection('shop')">Shop</button>
+      <button class="next-button" onclick="showSection('payment')">Payment</button>
+    </div>
+    <div class="lyrics" id="lyrics">Doain usaha gua lancar :)</div>
+    <div class="footer">
+      <p>© RafatharCode - රඩ</p>
+    </div>
+  </div>
+
+<div class="main-content" id="shop" style="display:block;">
+  <h1>Shop</h1>
+
+  <!-- Produk VPS -->
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>VPS 1GB (ID 1 VPS)</h3>
+    <p>Ram: 1GB<br>Core: 1<br>Disk: 20GB<br>Bandwidth: 1TB<br>Harga: 20.000</p>
+    <label for="version1">Pilih Versi VPS:</label>
+    <select id="version1" onchange="generateLink(1, 'VPS 1GB', '1 VPS', '1GB', '1', '20GB', '1TB', '20.000')">
+      <option value="">-- Pilih --</option>
+      <option value="20.04">20.04</option>
+      <option value="22.04">22.04</option>
+      <option value="24.04">24.04</option>
+      <option value="Debian 1">Debian 1</option>
+      <option value="Debian 2">Debian 2</option>
+    </select><br>
+    <a id="buyLink1" href="#" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>VPS 2GB Core 1 (ID 2 VPS C1)</h3>
+    <p>Ram: 2GB<br>Core: 1<br>Disk: 50GB<br>Bandwidth: 2TB<br>Harga: 25.000</p>
+    <label for="version2">Pilih Versi VPS:</label>
+    <select id="version2" onchange="generateLink(2, 'VPS 2GB Core 1', '2 VPS C1', '2GB', '1', '50GB', '2TB', '25.000')">
+      <option value="">-- Pilih --</option>
+      <option value="20.04">20.04</option>
+      <option value="22.04">22.04</option>
+      <option value="24.04">24.04</option>
+      <option value="Debian 1">Debian 1</option>
+      <option value="Debian 2">Debian 2</option>
+    </select><br>
+    <a id="buyLink2" href="#" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>VPS 2GB Core 2 (ID 2 VPS C2)</h3>
+    <p>Ram: 2GB<br>Core: 2<br>Disk: 50GB<br>Bandwidth: 2TB<br>Harga: 30.000</p>
+    <label for="version3">Pilih Versi VPS:</label>
+    <select id="version3" onchange="generateLink(3, 'VPS 2GB Core 2', '2 VPS C2', '2GB', '2', '50GB', '2TB', '30.000')">
+      <option value="">-- Pilih --</option>
+      <option value="20.04">20.04</option>
+      <option value="22.04">22.04</option>
+      <option value="24.04">24.04</option>
+      <option value="Debian 1">Debian 1</option>
+      <option value="Debian 2">Debian 2</option>
+    </select><br>
+    <a id="buyLink3" href="#" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>VPS 4GB (ID 4 VPS)</h3>
+    <p>Ram: 4GB<br>Core: 2<br>Disk: 80GB<br>Bandwidth: 4TB<br>Harga: 35.000</p>
+    <label for="version4">Pilih Versi VPS:</label>
+    <select id="version4" onchange="generateLink(4, 'VPS 4GB', '4 VPS', '4GB', '2', '80GB', '4TB', '35.000')">
+      <option value="">-- Pilih --</option>
+      <option value="20.04">20.04</option>
+      <option value="22.04">22.04</option>
+      <option value="24.04">24.04</option>
+      <option value="Debian 1">Debian 1</option>
+      <option value="Debian 2">Debian 2</option>
+    </select><br>
+    <a id="buyLink4" href="#" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>VPS 8GB (ID 8 VPS)</h3>
+    <p>Ram: 8GB<br>Core: 4<br>Disk: 160GB<br>Bandwidth: 5TB<br>Harga: 45.000</p>
+    <label for="version5">Pilih Versi VPS:</label>
+    <select id="version5" onchange="generateLink(5, 'VPS 8GB', '8 VPS', '8GB', '4', '160GB', '5TB', '45.000')">
+      <option value="">-- Pilih --</option>
+      <option value="20.04">20.04</option>
+      <option value="22.04">22.04</option>
+      <option value="24.04">24.04</option>
+      <option value="Debian 1">Debian 1</option>
+      <option value="Debian 2">Debian 2</option>
+    </select><br>
+    <a id="buyLink5" href="#" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>VPS 16GB (ID 16 VPS)</h3>
+    <p>Ram: 16GB<br>Core: 8<br>Disk: 240GB<br>Bandwidth: 5TB<br>Harga: 65.000</p>
+    <label for="version6">Pilih Versi VPS:</label>
+    <select id="version6" onchange="generateLink(6, 'VPS 16GB', '16 VPS', '16GB', '8', '240GB', '5TB', '65.000')">
+      <option value="">-- Pilih --</option>
+      <option value="20.04">20.04</option>
+      <option value="22.04">22.04</option>
+      <option value="24.04">24.04</option>
+      <option value="Debian 1">Debian 1</option>
+      <option value="Debian 2">Debian 2</option>
+    </select><br>
+    <a id="buyLink6" href="#" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <!-- Produk Lain -->
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Bot Telegram</h3>
+    <p>Bot Custom Sesuai Kebutuhanmu, Bot Cpanel, Bug, Dll.</p>
+    <a href="https://wa.me/6285864743922?text=Halo%20saya%20mau%20beli%20Kebutuhan%20Hosting" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Bot WhatsApp</h3>
+    <p>Bot Custom Sesuai Kebutuhanmu, Bot Cpanel, Bug, Dll.</p>
+    <a href="https://wa.me/6285864743922?text=Halo%20saya%20mau%20beli%20Kebutuhan%20Hosting" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Jasa Pembuatan Script</h3>
+    <p>Script Custom Sesuai Kebutuhanmu, Bot Cpanel, Bug, Dll.</p>
+    <a href="https://wa.me/6285864743922?text=Halo%20saya%20mau%20beli%20jasa%20bikin%20Script" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Jasa Website</h3>
+    <p>Web Store, Portofolio, Dll.</p>
+    <a href="https://wa.me/6285864743922?text=Halo%20saya%20mau%20pesan%20Jasa%20Website" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Admin Group (ID 1 Adm Group)</h3>
+    <p>Harga: 45.000</p>
+    <a href="https://wa.me/6285864743922?text=*PEMESANAN%20ADMIN%20GROUP*%0ANama%20Produk%3A%20Admin%20Group%0AID%20Pesanan%3A%201%20Adm%20Group%0AHarga%3A%2045.000" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Admin Channel (ID 1 Adm Channel)</h3>
+    <p>Harga: 55.000</p>
+    <a href="https://wa.me/6285864743922?text=*PEMESANAN%20ADMIN%20CHANNEL*%0ANama%20Produk%3A%20Admin%20Channel%0AID%20Pesanan%3A%201%20Adm%20Channel%0AHarga%3A%2055.000" target="_blank" class="next-button">Buy</a>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 1GB (ID 1 Panel)</h3>
+    <p>RAM: 1GB<br>CPU: 35%<br>Disk: 1GB<br>Harga: 2.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 1GB', '1 Panel', '1GB', '35%', '1GB', '2.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 2GB (ID 2 Panel)</h3>
+    <p>RAM: 2GB<br>CPU: 50%<br>Disk: 2GB<br>Harga: 3.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 2GB', '2 Panel', '2GB', '50%', '2GB', '3.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 3GB (ID 3 Panel)</h3>
+    <p>RAM: 3GB<br>CPU: 95%<br>Disk: 3GB<br>Harga: 4.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 3GB', '3 Panel', '3GB', '95%', '3GB', '4.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 4GB (ID 4 Panel)</h3>
+    <p>RAM: 4GB<br>CPU: 110%<br>Disk: 4GB<br>Harga: 5.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 4GB', '4 Panel', '4GB', '110%', '4GB', '5.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 5GB (ID 5 Panel)</h3>
+    <p>RAM: 5GB<br>CPU: 135%<br>Disk: 5GB<br>Harga: 6.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 5GB', '5 Panel', '5GB', '135%', '5GB', '6.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 6GB (ID 6 Panel)</h3>
+    <p>RAM: 6GB<br>CPU: 160%<br>Disk: 6GB<br>Harga: 7.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 6GB', '6 Panel', '6GB', '160%', '6GB', '7.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 7GB (ID 7 Panel)</h3>
+    <p>RAM: 7GB<br>CPU: 185%<br>Disk: 7GB<br>Harga: 8.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 7GB', '7 Panel', '7GB', '185%', '7GB', '8.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 8GB (ID 8 Panel)</h3>
+    <p>RAM: 8GB<br>CPU: 200%<br>Disk: 8GB<br>Harga: 9.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 8GB', '8 Panel', '8GB', '200%', '8GB', '9.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel 9GB (ID 9 Panel)</h3>
+    <p>RAM: 9GB<br>CPU: 300%<br>Disk: 9GB<br>Harga: 10.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel 9GB', '9 Panel', '9GB', '300%', '9GB', '10.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Panel Unlimited (ID 10 Panel)</h3>
+    <p>RAM: Unlimited<br>CPU: Unlimited<br>Disk: Unlimited<br>Harga: 15.000</p>
+    <button class="next-button" onclick="generatePanelOrder('Panel Unlimited', '10 Panel', 'Unlimited', 'Unlimited', 'Unlimited', '15.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Script RafatharCode V9 (ID 1 Sc V9)</h3>
+    <p>Harga: 30.000</p>
+    <button class="next-button" onclick="generateScOrder('Script RafatharCode V9', '1 Sc V9', '30.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Script RafatharCode V10 (ID 2 Sc V10)</h3>
+    <p>Harga: 35.000</p>
+    <button class="next-button" onclick="generateScOrder('Script RafatharCode V10', '2 Sc V10', '35.000')">Buy</button>
+  </div>
+  
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Reseller Script RafatharCode (ID 3 Reseller Script)</h3>
+    <p>
+      Keuntungan:<br>
+      - Bisa Add Database Sendiri<br>
+      - Bisa Dijual Kembali<br>
+      - Diutamakan Jika Update<br>
+      <br>Harga: 45.000
+    </p>
+    <button class="next-button" onclick="generateScOrder('Reseller Script RafatharCode', '3 Reseller Script', '45.000')">Buy</button>
+  </div>
+
+<div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Reseller Panel (ID 1 Ress Panel)</h3>
+    <p>
+      Keuntungan:<br>
+      - Bisa jual panel<br>
+      - Auto balik modal<br><br>
+      Harga: 15.000
+    </p>
+    <button class="next-button" onclick="generatePremiumOrder('Reseller Panel', '1 Ress Panel', '15.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Admin Panel (ID 1 Adm Panel)</h3>
+    <p>
+      Keuntungan:<br>
+      - Bisa Open Reseller Panel<br>
+      - Bisa Jual Panel<br>
+      - Auto Balik Modal<br><br>
+      Harga: 20.000
+    </p>
+    <button class="next-button" onclick="generatePremiumOrder('Admin Panel', '1 Adm Panel', '20.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Owner Panel (ID 1 Own Panel)</h3>
+    <p>
+      Keuntungan:<br>
+      - Bisa Open Admin Panel<br>
+      - Bisa Open Reseller Panel<br>
+      - Bisa Jual Panel<br>
+      - Auto Balik Modal<br><br>
+      Harga: 30.000
+    </p>
+    <button class="next-button" onclick="generatePremiumOrder('Owner Panel', '1 Own Panel', '30.000')">Buy</button>
+  </div>
+
+  <div class="product">
+    <img src="https://files.catbox.moe/1mrgbt.jpg" class="product-img">
+    <h3>Pt Panel (ID 1 Pt Panel)</h3>
+    <p>
+      Keuntungan:<br>
+      - Bisa Open Owner Panel<br>
+      - Bisa Open Admin Panel<br>
+      - Bisa Open Reseller Panel<br>
+      - Bisa Jual Panel<br>
+      - Bisa Balik Modal<br><br>
+      Harga: 35.000
+    </p>
+    <button class="next-button" onclick="generatePremiumOrder('Pt Panel', '1 Pt Panel', '35.000')">Buy</button>
+  </div>
+
+  <button class="next-button" onclick="backToMain()">Back</button>
+</div>
+
+  <div class="main-content" id="payment" style="display:none;">
+    <h1>Payment RafatharCode</h1>
+    <div class="product">
+      <img src="https://files.catbox.moe/bd4mip.jpg" class="product-img" alt="Dana">
+      <h3>Dana</h3>
+      <p>RafatharCode Paymen</p>
+      <button class="next-button" onclick="copyNumber('08388329551')">Copy</button>
+    </div>
+
+    <div class="product">
+      <img src="https://files.catbox.moe/u8gvag.jpg" class="product-img" alt="OVO">
+      <h3>OVO</h3>
+      <p>RafatharCode Paymen</p>
+      <button class="next-button" onclick="copyNumber('083835382136')">Copy</button>
+    </div>
+
+    <div class="product">
+      <img src="https://files.catbox.moe/wfdj0o.jpg" class="product-img" alt="GoPay">
+      <h3>GoPay</h3>
+      <p>RafatharCode Paymen</p>
+      <button class="next-button" onclick="copyNumber('083183432282')">Copy</button>
+    </div>
+  <div style="margin-top: 3rem; text-align: center;">
+    <h2 style="margin-bottom: 1rem;">Scan QRIS Untuk Pembayaran</h2>
+    <img src="https://files.catbox.moe/jsxedf.jpg" alt="QRIS" style="max-width: 300px; width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+  </div>
+    <button class="next-button" onclick="backToMain()">Back</button>
+  </div>
+
+  <audio id="audio" src="https://files.catbox.moe/5ak2ek.mp4" preload="auto"></audio>
+
+  <script>
+    const loading = document.getElementById('loading');
+    const intro = document.getElementById('intro');
+    const main = document.getElementById('main');
+    const audio = document.getElementById('audio');
+
+    const texts = ["Web Developer", "Bot Developer", "Attacker"];
+    
+    function typeText(el, words) {
+      let index = 0, char = 0, isAttacker = false;
+      function type() {
+        if (!isAttacker && index < words.length) {
+          if (char <= words[index].length) {
+            el.textContent = words[index].slice(0, char++);
+            setTimeout(type, 100);
+          } else {
+            index++; char = 0;
+            setTimeout(type, 600);
+          }
+        } else if (!isAttacker) {
+          isAttacker = true;
+          el.innerHTML += "<br><span id='TexT'></span>";
+          typeAttacker();
+        }
+      }
+      function typeAttacker() {
+        let TexT = "Dibuat Oleh RafatharCode Developer";
+        let aText = document.getElementById("TexT");
+        let aIndex = 0;
+        function aType() {
+          if (aIndex <= TexT.length) {
+            aText.textContent = TexT.slice(0, aIndex++);
+            setTimeout(aType, 120);
+          }
+        }
+        aType();
+      }
+      type();
+    }
+
+    window.onload = () => {
+      setTimeout(() => {
+        loading.style.display = 'none';
+        intro.style.display = 'block';
+        typeText(document.getElementById("introTyping"), texts);
+      }, 2000);
+    };
+
+    function goToMain() {
+      intro.style.display = 'none';
+      main.style.display = 'block';
+      audio.play();
+      typeText(document.getElementById("mainTyping"), texts);
+    }
+
+    function showSection(section) {
+      document.querySelectorAll('.main-content').forEach(el => el.style.display = 'none');
+      document.getElementById(section).style.display = 'block';
+    }
+
+    function backToMain() {
+      document.querySelectorAll('.main-content').forEach(el => el.style.display = 'none');
+      main.style.display = 'block';
+    }
+
+    function copyNumber(number) {
+      navigator.clipboard.writeText(number);
+      alert("Nomor berhasil disalin!");
+    }
+    function generateLink(id, nama, kode, ram, core, disk, bandwidth, harga) {
+    const version = document.getElementById('version' + id).value;
+    const link = document.getElementById('buyLink' + id);
+
+    if (!version) {
+      link.href = "#";
+      return;
+    }
+
+    const pesan = `*FORMAT PESANAN VPS*%0A` +
+      `Nama Produk: ${nama}%0A` +
+      `Id Pesanan: ${kode}%0A` +
+      `Ram: ${ram}%0A` +
+      `Core: ${core}%0A` +
+      `Disk: ${disk}%0A` +
+      `Bandwidth: ${bandwidth}%0A` +
+      `Versi VPS: ${version}%0A` +
+      `Region: (Contoh SG/US)%0A` +
+      `Harga: ${harga}`;
+
+    link.href = `https://wa.me/6285864743922?text=${pesan}`;
+  }
+  function generatePanelOrder(namaProduk, idPesanan, ram, cpu, disk, harga) {
+    const randomNum = Math.floor(Math.random() * 1000);
+    const username = "user" + randomNum;
+    const gmail = username + "@gmail.com";
+    const password = "pass" + randomNum;
+
+    const message = `*PEMESANAN PANEL:*\n\n` +
+      `Nama Produk: ${namaProduk}\n` +
+      `ID Pesanan: ${idPesanan}\n` +
+      `Username: ${username}\n` +
+      `Gmail: ${gmail}\n` +
+      `Password: ${password}\n` +
+      `RAM: ${ram}\n` +
+      `CPU: ${cpu}\n` +
+      `Disk: ${disk}\n` +
+      `Harga: ${harga}`;
+
+    const encoded = encodeURIComponent(message);
+    const waLink = `https://wa.me/6285864743922?text=${encoded}`;
+    window.open(waLink, '_blank');
+  }
+  function generateScOrder(namaProduk, idPesanan, harga) {
+    const message = `*PEMESANAN SCRIPT:*\n\n` +
+      `Nama Produk: ${namaProduk}\n` +
+      `ID Pesanan: ${idPesanan}\n` +
+      `Harga: ${harga}`;
+
+    const encoded = encodeURIComponent(message);
+    const waLink = `https://wa.me/6285864743922?text=${encoded}`;
+    window.open(waLink, '_blank');
+  }
+  function generatePremiumOrder(namaProduk, idPesanan, harga) {
+    const message = `*PEMESANAN PREMIUM PANEL:*\n\n` +
+      `Nama Produk: ${namaProduk}\n` +
+      `ID Pesanan: ${idPesanan}\n` +
+      `Harga: ${harga}`;
+
+    const encoded = encodeURIComponent(message);
+    const waLink = `https://wa.me/6285864743922?text=${encoded}`;
+    window.open(waLink, '_blank');
+  }
+  </script>
+</body>
